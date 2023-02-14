@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="Pop_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="308"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="207" height="308"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-DM-e8p">
+                        <rect key="frame" x="0.0" y="0.0" width="207" height="308"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="KVb-DM-e8p" secondAttribute="bottom" id="FIj-i2-7CU"/>
+                <constraint firstItem="KVb-DM-e8p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MXo-qt-wbO"/>
+                <constraint firstAttribute="trailing" secondItem="KVb-DM-e8p" secondAttribute="trailing" id="URK-by-OE0"/>
+                <constraint firstItem="KVb-DM-e8p" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dgc-TY-2bK"/>
+            </constraints>
+            <size key="customSize" width="207" height="308"/>
+            <connections>
+                <outlet property="movieImageView" destination="KVb-DM-e8p" id="c8S-XM-x9N"/>
+            </connections>
+            <point key="canvasLocation" x="245.6521739130435" y="216.29464285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>

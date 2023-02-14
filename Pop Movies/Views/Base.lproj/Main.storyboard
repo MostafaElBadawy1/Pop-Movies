@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xKt-5D-psH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pop Movies-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Pop_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-sk-uQX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mnZ-zE-Yz6">
+                                    <size key="itemSize" width="202" height="320"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZfX-sk-uQX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sfn-Zb-D4v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZfX-sk-uQX" secondAttribute="bottom" id="atX-0U-8bC"/>
+                            <constraint firstItem="ZfX-sk-uQX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="chh-du-gdu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZfX-sk-uQX" secondAttribute="trailing" id="fKC-Mj-3QP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pop Movies" id="Lvh-yV-1mo">
+                        <barButtonItem key="rightBarButtonItem" title="Reorder" id="mTm-5U-eYy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="arragnmentMoviesBarButtonItem" destination="mTm-5U-eYy" id="LSE-Pm-08k"/>
+                        <outlet property="homeCollectionView" destination="ZfX-sk-uQX" id="lfE-t2-SgQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="1462"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="b5C-DS-e7t">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xKt-5D-psH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bwv-qn-2yP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="12w-bM-TZO" kind="relationship" relationship="viewControllers" id="2fk-uF-sgq"/>
+                        <segue destination="z0u-XA-6p1" kind="relationship" relationship="viewControllers" id="yhe-2m-eEu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzq-N4-w9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="33"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="cYl-rv-qba">
+            <objects>
+                <navigationController id="12w-bM-TZO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="P8m-tH-ljj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Oj-SX-5Y2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="My3-sU-YvL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v3f-u7-Mwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="755"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="Dxf-Q4-GfV">
+            <objects>
+                <navigationController id="z0u-XA-6p1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="star" catalog="system" id="hWc-V8-KH0"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fsb-VK-1HD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="A0h-Wd-JU0" kind="relationship" relationship="rootViewController" id="R10-e9-kAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suF-rh-SAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1288" y="755"/>
+        </scene>
+        <!--Favorite Movies-->
+        <scene sceneID="3Xv-bo-Abq">
+            <objects>
+                <viewController id="A0h-Wd-JU0" customClass="FavoriteViewController" customModule="Pop_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qPi-zc-jvv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0d2-Ri-XaM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorite Movies" id="wY5-5G-Kv6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SIx-qs-oVe" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="1462"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
