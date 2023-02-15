@@ -7,8 +7,13 @@
 
 import Foundation
 import Alamofire
-class APIManager {
-    private init() {}
+
+protocol APIManaging {
+    func fetchData<M:Decodable>(target: NetworkRouter, responceModel:M.Type, completion: @escaping (M?, Error?)-> Void)
+}
+
+class APIManager: APIManaging {
+  //  private init() {}
     static let shared = APIManager()
     let sessionManager: Session = {
             let configuration = URLSessionConfiguration.af.default

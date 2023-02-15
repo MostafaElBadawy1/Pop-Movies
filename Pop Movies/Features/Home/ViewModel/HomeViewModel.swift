@@ -7,6 +7,10 @@
 
 import Foundation
 class HomeViewModel {
+    let apiManager: APIManaging
+    init (apiManager: APIManaging) {
+        self.apiManager = apiManager
+    }
     var preFetchingIndex = 6
     var pageNumber = 2
     var arrengmentType = "popularity.desc"

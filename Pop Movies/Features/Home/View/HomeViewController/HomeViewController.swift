@@ -21,15 +21,15 @@ class HomeViewController: UIViewController {
         initView()
         initViewModel()
     }
-    init(viewModel:HomeViewModel = HomeViewModel(), imageLoader: ImageLoadable = ImageLoader()) {
-        self.imageLoader = imageLoader
-        self.homeViewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+//    init(viewModel:HomeViewModel = HomeViewModel(), imageLoader: ImageLoadable = ImageLoader()) {
+//        self.imageLoader = imageLoader
+//        self.homeViewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//    }
     //MARK: - Main Methods
     private func initView() {
         configureCollectionView()
