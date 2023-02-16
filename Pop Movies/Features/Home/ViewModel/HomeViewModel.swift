@@ -13,18 +13,18 @@ class HomeViewModel {
         self.apiManager = apiManager
     }
     var preFetchingIndex = 6
-    var pageNumber = 2
+    private var pageNumber = 2
     var arrengmentType = "popularity.desc"
     var moviesArray = [MoviesResults]()
     var moreMoviesArray = [MoviesResults]()
     var bindingData: (([MoviesResults]?,Error?) -> Void) = {_, _ in}
-    var result = [MoviesResults]() {
+    private  var result = [MoviesResults]() {
         didSet {
             bindingData(result, nil)
         }
     }
     
-    var error: Error? {
+    private  var error: Error? {
         didSet {
             bindingData(nil, error)
         }
@@ -90,7 +90,7 @@ class HomeViewModel {
         return imageUrl
     }
     func initMoviesDetailsVC(indexPath: Int) -> UIViewController {
-        let movieDetailsViewModel = MovieDetailsViewModel(movieID: indexPath)
+        let movieDetailsViewModel = MovieDetailsViewModel(movieID: moviesArray[indexPath].id ?? 0)
         let movieDetailsVC = MovieDetailsViewController(viewModel: movieDetailsViewModel)
         return movieDetailsVC
     }

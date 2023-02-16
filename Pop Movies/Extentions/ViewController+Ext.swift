@@ -14,7 +14,8 @@ extension UIViewController {
         alert.present(alert, animated: true, completion: nil)
     }
     func createImageURL(posterPath: String) -> URL {
-        guard let imageUrl = URL(string: "https://image.tmdb.org/t/p/w185/\(posterPath)") else {return URL(string: "")!}
+        let posterURl = Constants.shared.moviePosterURL
+        guard let imageUrl = URL(string: "\(posterURl)\(posterPath)") else {return URL(string: "")!}
         return imageUrl
     }
 }

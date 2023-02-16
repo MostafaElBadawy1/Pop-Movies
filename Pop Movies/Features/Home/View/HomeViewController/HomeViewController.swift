@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properities
     var homeViewModel: HomeViewModel?
     var imageLoader: ImageLoadable?
+    
     //MARK: - IBOutlets
     @IBOutlet weak private var arragnmentMoviesBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var homeCollectionView: UICollectionView!
@@ -30,6 +31,7 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     //MARK: - Main Methods
     private func initView() {
         configureCollectionView()
@@ -51,19 +53,19 @@ class HomeViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        let mostPopuler = UIAction(title: "Most Populer") { [ weak self] (action) in
-            self?.homeViewModel?.arrengmentType = "popularity.desc"
+        let mostPopuler = UIAction(title: Constants.shared.mostPopulerMenuButtonTitle) { [ weak self] (action) in
+            self?.homeViewModel?.arrengmentType = Constants.shared.mostPopulerMenuButtonArrengmentType
             self?.homeViewModel?.resetForPrefetching()
             self?.fetchData(sortBy: (self?.homeViewModel?.getArrengmentType())! , page: 1)
         }
         
-        let topRated = UIAction(title: "Top Rated") { [weak self] (action) in
-            self?.homeViewModel?.arrengmentType = "vote_average.desc"
+        let topRated = UIAction(title: Constants.shared.topRatedMenuButtonTitle) { [weak self] (action) in
+            self?.homeViewModel?.arrengmentType = Constants.shared.topRatedMenuButtonArrengmentType
             self?.homeViewModel?.resetForPrefetching()
             self?.fetchData(sortBy: (self?.homeViewModel?.getArrengmentType())! , page: 1)
         }
         
-        let menu = UIMenu(title: "Choose Movies Order", options: .displayInline, children: [mostPopuler , topRated])
+        let menu = UIMenu(title: Constants.shared.arrengmentTypeMenuTitle, options: .displayInline, children: [mostPopuler , topRated])
         arragnmentMoviesBarButtonItem.primaryAction = nil
         arragnmentMoviesBarButtonItem.menu = menu
     }
