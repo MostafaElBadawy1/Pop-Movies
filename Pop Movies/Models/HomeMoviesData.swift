@@ -7,8 +7,7 @@
 
 import Foundation
 struct HomeMoviesData: Decodable {
-    // let page: String?
-    let results: [MoviesResults]
+    let results: [MoviesResults]?
 }
 struct MoviesResults: Decodable {
     let posterPath: String?

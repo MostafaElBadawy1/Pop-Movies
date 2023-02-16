@@ -45,22 +45,23 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction private func trailerButton(_ sender: UIButton) {
-        if let url = URL(string: "https://www.youtube.com/") {
+        if let url = URL(string: Constants.shared.youTubeURL) {
             UIApplication.shared.open(url)
         }
     }
 }
 
 private extension MovieDetailsViewController {
+    
     //MARK: - Main Methods
     func initView() {
     }
     
     func initViewModel() {
-        // guard let movieID = movieID else { return }
         fetchMovieDetails()
         bindMovieDetailsData()
     }
+    
     func setupView(ImageURL: URL) {
         imageLoader.setImage(ImageURL:  ImageURL, imageView: moviePosterImageView)
     }
@@ -80,7 +81,7 @@ private extension MovieDetailsViewController {
             }
             if let error = error {
                 print(error.localizedDescription)
-                self?.presentAlert(title: "Error While Loading Movie Details", message: "", actionTitle: "OK")
+                self?.presentAlert(title:Constants.shared.moviesDetailsVCErrorMessage, message: "", actionTitle: "OK")
             }
         }
     }

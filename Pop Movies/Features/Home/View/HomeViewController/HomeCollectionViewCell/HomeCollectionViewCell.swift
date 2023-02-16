@@ -10,7 +10,6 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImageView: UIImageView!
 
-   
     func configure(with configurations: HomeCollectionViewCellConfigurations) {
         configurations.imageLoader.setImage(ImageURL: configurations.movieImageURL, imageView: movieImageView)
     }

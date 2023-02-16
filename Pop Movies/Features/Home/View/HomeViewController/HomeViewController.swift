@@ -70,9 +70,8 @@ class HomeViewController: UIViewController {
         arragnmentMoviesBarButtonItem.menu = menu
     }
     
-    
     //MARK: - Data Methods
-    private  func fetchData(sortBy: String, page: Int) {
+    private func fetchData(sortBy: String, page: Int) {
         homeViewModel?.getHomeMovies(sortBy: sortBy, page: page)
     }
     
@@ -86,7 +85,7 @@ class HomeViewController: UIViewController {
             }
             if let error = error {
                 print(error.localizedDescription)
-                self?.presentAlert(title: "Error While Loading Home Movies", message: "", actionTitle: "OK")
+                self?.presentAlert(title: Constants.shared.homeVCErrorMessage, message: "", actionTitle: "OK")
             }
         }
     }
@@ -106,11 +105,10 @@ class HomeViewController: UIViewController {
             }
             if let error = error {
                 print(error.localizedDescription)
-                self?.presentAlert(title: "Error While Loading Home Movies", message: "", actionTitle: "OK")
+                self?.presentAlert(title: Constants.shared.homeVCErrorMessage, message: "", actionTitle: "OK")
             }
         }
     }
 }
 
 
-//change

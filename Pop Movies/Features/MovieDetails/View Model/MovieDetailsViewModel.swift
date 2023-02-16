@@ -11,7 +11,7 @@ class MovieDetailsViewModel {
     var bindingData: ((MovieDetails?,Error?) -> Void) = {_, _ in}
     private let apiManager: APIManaging
     private var movieID: Int
-    private  var result: MovieDetails? {
+    private var result: MovieDetails? {
         didSet {
             bindingData(result, nil)
         }
