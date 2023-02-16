@@ -19,4 +19,6 @@ class Constants {
     let topRatedMenuButtonArrengmentType = "vote_average.desc"
     let arrengmentTypeMenuTitle = "Choose Movies Order"
     let youTubeURL = "https://www.youtube.com/"
+    let moviesDetailsVCErrorMessage = "Error While Loading Movie Details"
+    let homeVCErrorMessage = "Error While Loading Movies "
 }

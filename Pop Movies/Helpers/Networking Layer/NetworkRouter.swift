@@ -8,8 +8,7 @@
 import Foundation
 import Alamofire
 enum NetworkRouter {
-    // https://api.themoviedb.org/3/ discover/movie?sort_by=vote_average.desc&api_key=2ddab98eebacf2ae66405362b4598826&page=2
-    //  https://api.themoviedb.org/3/ movie/1084049?api_key=2ddab98eebacf2ae66405362b4598826
+
     case getHome(apiKey: String, sortBy: String, page: Int)
     case getMovieDetails(movieID: String)
     
