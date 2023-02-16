@@ -25,7 +25,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         homeCollectionView.deselectItem(at: indexPath, animated: true)
         //         AppRouter.shared.route(to: .movieDetails(movieId: (homeViewModel?.moviesArray[indexPath.item].id)!))
-        let viewModel = MovieDetailsViewModel(movieID: homeViewModel?.moviesArray[indexPath.item].id ?? 0)
+        let viewModel = MovieDetailsViewModel(movieID: homeViewModel?.getMovieID(indexPath: indexPath.item) ?? 0)
         let vc = MovieDetailsViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }

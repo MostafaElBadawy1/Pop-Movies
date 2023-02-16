@@ -53,14 +53,14 @@ class HomeViewController: UIViewController {
     private func configureNavigationBar() {
         let mostPopuler = UIAction(title: "Most Populer") { [ weak self] (action) in
             self?.homeViewModel?.arrengmentType = "popularity.desc"
-            self?.resetForPrefetching()
-            self?.fetchData(sortBy: (self?.homeViewModel?.arrengmentType)! , page: 1)
+            self?.homeViewModel?.resetForPrefetching()
+            self?.fetchData(sortBy: (self?.homeViewModel?.getArrengmentType())! , page: 1)
         }
         
         let topRated = UIAction(title: "Top Rated") { [weak self] (action) in
             self?.homeViewModel?.arrengmentType = "vote_average.desc"
-            self?.resetForPrefetching()
-            self?.fetchData(sortBy: (self?.homeViewModel?.arrengmentType)! , page: 1)
+            self?.homeViewModel?.resetForPrefetching()
+            self?.fetchData(sortBy: (self?.homeViewModel?.getArrengmentType())! , page: 1)
         }
         
         let menu = UIMenu(title: "Choose Movies Order", options: .displayInline, children: [mostPopuler , topRated])
@@ -68,10 +68,6 @@ class HomeViewController: UIViewController {
         arragnmentMoviesBarButtonItem.menu = menu
     }
     
-    private func resetForPrefetching() {
-        homeViewModel?.pageNumber = 2
-        homeViewModel?.preFetchingIndex = 6
-    }
     
     //MARK: - Data Methods
     private  func fetchData(sortBy: String, page: Int) {

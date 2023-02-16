@@ -8,7 +8,7 @@
 import UIKit
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let navigationBarHeight = navigationController?.navigationBar.frame.height else {return CGSize(width: 0, height: 0)}
+//        guard let navigationBarHeight = navigationController?.navigationBar.frame.height else {return CGSize(width: 0, height: 0)}
         // print(collectionView.frame.size.width)
         // print(collectionView.frame.size.height)
          return CGSize(width: 207, height: 310)

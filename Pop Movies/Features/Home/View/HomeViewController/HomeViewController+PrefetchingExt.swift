@@ -10,10 +10,9 @@ extension HomeViewController: UICollectionViewDataSourcePrefetching {
      func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if indexPath.item == homeViewModel?.preFetchingIndex {
-                fetchPrefetchedMovies(sortBy: homeViewModel?.arrengmentType ?? "", page: homeViewModel?.pageNumber ?? 0)
+                fetchPrefetchedMovies(sortBy: homeViewModel?.getArrengmentType() ?? "", page: homeViewModel?.getPageNumber() ?? 0)
                 bindPrefetchedMovies()
-                homeViewModel?.preFetchingIndex += 6
-                homeViewModel?.pageNumber += 1
+                homeViewModel?.increasePreFetchingIndexAndPageNumber()
             }
         }
     }

@@ -22,11 +22,13 @@ class HomeViewModel {
             bindingData(result, nil)
         }
     }
+    
     var error: Error? {
         didSet {
             bindingData(nil, error)
         }
     }
+    
     func getHomeMovies(sortBy: String, page: Int) {
         apiManager.fetchData(target: .getHome(apiKey: Constants.shared.apiKey, sortBy: sortBy, page: page), responceModel: HomeMoviesData.self)  { result, error in
             switch result {
@@ -42,10 +44,37 @@ class HomeViewModel {
             }
         }
     }
+    
     func getMoviesCount() -> Int {
         return moviesArray.count
     }
+    
     func addPrefetchedMovies() {
         moviesArray.append(contentsOf: moreMoviesArray)
+    }
+    
+    func getMovieID(indexPath: Int) -> Int {
+        guard let movieID = moviesArray[indexPath].id else {return 0}
+        return movieID
+    }
+    
+    func getPreFetchingIndex() -> Int {
+        return preFetchingIndex
+    }
+    
+    func getPageNumber() -> Int {
+        return pageNumber
+    }
+    
+    func getArrengmentType() -> String {
+        return arrengmentType
+    }
+    func increasePreFetchingIndexAndPageNumber() {
+        preFetchingIndex += 6
+        pageNumber += 1
+    }
+    func resetForPrefetching() {
+        pageNumber = 2
+        preFetchingIndex = 6
     }
 }
