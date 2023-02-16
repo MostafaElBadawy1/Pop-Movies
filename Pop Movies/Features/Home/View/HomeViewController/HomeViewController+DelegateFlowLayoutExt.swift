@@ -9,23 +9,17 @@ import UIKit
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        guard let navigationBarHeight = navigationController?.navigationBar.frame.height else {return CGSize(width: 0, height: 0)}
-        // print(collectionView.frame.size.width)
-        // print(collectionView.frame.size.height)
          return CGSize(width: 207, height: 310)
       //  return CGSize(width:collectionView.frame.size.width/2, height: ( ( collectionView.frame.size.height / 2)))
     }
     
      func collectionView(_ collectionView: UICollectionView,
                          layout collectionViewLayout: UICollectionViewLayout,
-                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-         return 0
-     }
+                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { return 0 }
     
      func collectionView(_ collectionView: UICollectionView, layout
          collectionViewLayout: UICollectionViewLayout,
-                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-         return 0
-     }
+                         minimumLineSpacingForSectionAt section: Int) -> CGFloat { return 0 }
     
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
          return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

@@ -15,18 +15,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.shared.homeCollectionViewCell, for: indexPath) as! HomeCollectionViewCell
-        guard let url = homeViewModel?.moviesArray[indexPath.item].posterPath else {return cell}
-        let imageURL = createImageURL(posterPath: url)
-        guard let imageLoader: ImageLoadable = self.imageLoader else { return UICollectionViewCell() }
-        cell.configure(with: .init(movieImageURL: imageURL, imageLoader: imageLoader))
+        cell.configure(with: .init(movieImageURL: (homeViewModel?.createImageURL(indexPath: indexPath.item))!, imageLoader: imageLoader!))
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         homeCollectionView.deselectItem(at: indexPath, animated: true)
-        //         AppRouter.shared.route(to: .movieDetails(movieId: (homeViewModel?.moviesArray[indexPath.item].id)!))
-        let viewModel = MovieDetailsViewModel(movieID: homeViewModel?.getMovieID(indexPath: indexPath.item) ?? 0)
-        let vc = MovieDetailsViewController(viewModel: viewModel)
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigate(to: (homeViewModel?.initMoviesDetailsVC(indexPath: indexPath.item))!, with: .push)
     }
 }

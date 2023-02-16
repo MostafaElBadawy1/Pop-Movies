@@ -9,16 +9,15 @@ import UIKit
 import SDWebImage
 class MovieDetailsViewController: UIViewController {
     //MARK: - Properites
-    var movieDetailsViewModel: MovieDetailsViewModel
-    var imageLoader: ImageLoadable
-   // var movieID: Int?
+    private var movieDetailsViewModel: MovieDetailsViewModel
+    private var imageLoader: ImageLoadable
     //MARK: - IBOutlets
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var moviePosterImageView: UIImageView!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var runTimeLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak private var movieTitleLabel: UILabel!
+    @IBOutlet weak private var moviePosterImageView: UIImageView!
+    @IBOutlet weak private var releaseDateLabel: UILabel!
+    @IBOutlet weak private var runTimeLabel: UILabel!
+    @IBOutlet weak private var ratingLabel: UILabel!
+    @IBOutlet weak private var overViewLabel: UILabel!
     //MARK: - LifyCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +31,17 @@ class MovieDetailsViewController: UIViewController {
         self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - IBActions
-    @IBAction func favoriteButtonAction(_ sender: UIButton) {
+    @IBAction private func favoriteButtonAction(_ sender: UIButton) {
         // Save Button ID and Image To CoreData
     }
     
-    @IBAction func trailerButton(_ sender: UIButton) {
+    @IBAction private func trailerButton(_ sender: UIButton) {
         if let url = URL(string: "https://www.youtube.com/") {
             UIApplication.shared.open(url)
         }
@@ -54,7 +53,7 @@ private extension MovieDetailsViewController {
     }
     
     func initViewModel() {
-       // guard let movieID = movieID else { return }
+        // guard let movieID = movieID else { return }
         fetchMovieDetails()
         bindMovieDetailsData()
     }

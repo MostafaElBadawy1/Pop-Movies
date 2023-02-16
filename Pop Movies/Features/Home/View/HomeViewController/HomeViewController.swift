@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     var homeViewModel: HomeViewModel?
     var imageLoader: ImageLoadable?
     //MARK: - IBOutlets
-    @IBOutlet weak var arragnmentMoviesBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak private var arragnmentMoviesBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var homeCollectionView: UICollectionView!
     
     // MARK: - LifeCycle

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 class HomeViewModel {
     let apiManager: APIManaging
     init (apiManager: APIManaging = APIManager()) {
@@ -76,5 +77,21 @@ class HomeViewModel {
     func resetForPrefetching() {
         pageNumber = 2
         preFetchingIndex = 6
+    }
+    
+    func getPosterURL(indexPath: Int) -> String {
+        guard let moviePosterPath = moviesArray[indexPath].posterPath else {return ""}
+        return moviePosterPath
+    }
+    func createImageURL(indexPath: Int) -> URL {
+        let moviePosterPath = getPosterURL(indexPath: indexPath)
+        let url = Constants.shared.moviePosterURL
+        guard let imageUrl = URL(string: "\(url)\(moviePosterPath)") else {return URL(string: "")!}
+        return imageUrl
+    }
+    func initMoviesDetailsVC(indexPath: Int) -> UIViewController {
+        let movieDetailsViewModel = MovieDetailsViewModel(movieID: indexPath)
+        let movieDetailsVC = MovieDetailsViewController(viewModel: movieDetailsViewModel)
+        return movieDetailsVC
     }
 }

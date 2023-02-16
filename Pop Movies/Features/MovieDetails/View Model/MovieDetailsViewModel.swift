@@ -7,33 +7,31 @@
 
 import Foundation
 class MovieDetailsViewModel {
-    let apiManager: APIManaging
-    init (apiManager: APIManaging = APIManager(), movieID: Int) {
-        self.apiManager = apiManager
-        self.movieID = movieID
-    }
-    var movieID: Int
     var movie: MovieDetails?
     var bindingData: ((MovieDetails?,Error?) -> Void) = {_, _ in}
-    var result: MovieDetails? {
+    private let apiManager: APIManaging
+    private var movieID: Int
+    private  var result: MovieDetails? {
         didSet {
             bindingData(result, nil)
         }
     }
-    var error: Error? {
+    private  var error: Error? {
         didSet {
             bindingData(nil, error)
         }
     }
     
-//    init(movieID: Int) {
-//        self.movieID = movieID
-//    }
+    init(apiManager: APIManaging = APIManager(), movieID: Int) {
+        self.apiManager = apiManager
+        self.movieID = movieID
+    }
+    
     func getMovieDetails() {
         apiManager.fetchData(target: .getMovieDetails(movieID: "\(movieID)"), responceModel: MovieDetails.self)  { result, error in
             switch result {
             case .some(let data):
-                    self.result = data
+                self.result = data
             case .none:
                 switch error {
                 case .some(let error):

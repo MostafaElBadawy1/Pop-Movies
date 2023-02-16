@@ -1,12 +1,12 @@
-////
-////  Routing.swift
-////  Pop Movies
-////
-////  Created by mostafa  on 15/02/2023.
-////
 //
-//import Foundation
-//import UIKit
+//  Routing.swift
+//  Pop Movies
+//
+//  Created by mostafa  on 15/02/2023.
+//
+
+import Foundation
+import UIKit
 //protocol RoutingDestinationProtocol {}
 //
 //protocol RouterProtocol {
@@ -15,8 +15,6 @@
 //}
 //enum RoutingDestination: RoutingDestinationProtocol {
 //    case movieDetails(movieId: Int)
-//    case startNewChat
-//    // etc.
 //}
 //class AppRouter: RouterProtocol {
 //   // associatedtype RoutingDestination = RoutingDestination
@@ -28,10 +26,7 @@
 ////            let viewModel = MovieDetailsViewModel(movieID: movieId )
 ////           let vc = MovieDetailsViewController(viewModel: viewModel)
 ////           self.navigationController?.pushViewController(vc, animated: true)
-//        case .startNewChat:
-//            break
-//            // navigate to the "start new chat" screen
-//            
+//
 //        }
 //    }
 //}
@@ -42,7 +37,7 @@
 //}
 //
 //
-//    
+//
 //protocol ViewControllerProvider {
 //    typealias ResultHandler = (Result< UIViewController, Error>) -> Void
 //   func provideViewController(resultHandler: @escaping ResultHandler)
@@ -54,8 +49,6 @@
 //      case .movieDetails(let movieId):
 //          self.provideViewChatController(movieID: movieId, resultHandler: resultHandler)
 //      // etc.
-//      case .startNewChat:
-//          break
 //      }
 //   }
 //    private func provideViewChatController(movieID: Int, resultHandler: ResultHandler) {
@@ -65,7 +58,7 @@
 //      }
 //   }
 //
-//protocol ViewControllerNavigator: class {
+//protocol ViewControllerNavigator: AnyObject {
 //   func navigateTo(_ viewController: UIViewController)
 //}
 //extension RouterProtocol
@@ -83,12 +76,12 @@
 //extension NavigationControllerRouterBase: ViewControllerNavigator {
 //   func navigateTo(_ viewController: UIViewController) {
 //   }
-//   
+//
 //}
-//final class ChatRouter: NavigationControllerRouterBase, RouterProtocol {
+//final class AppRouter: NavigationControllerRouterBase, RouterProtocol {
 //
-//   typealias RoutingDestination = RoutingDestination
-//    
+//   typealias AppRoutingDestination = RoutingDestination
+//
 //}
 //class ModalPresentingRouterBase {}
 //
@@ -100,4 +93,61 @@
 //    func navigateTo(_ viewController: UIViewController) {
 //        navigationController?.pushViewController(viewController, animated: false)
 //    }
+//}
+
+//
+//protocol RoutingDestinationProtocol {}
+//
+//protocol RouterProtocol {
+//    associatedtype RoutingDestination: RoutingDestinationProtocol
+//    func route(to destination: RoutingDestination)
+//}
+//
+//
+//enum ChatRoutingDestination: RoutingDestinationProtocol {
+//    case viewChat(userId: Int)
+//}
+//
+//class ChatRouter: RouterProtocol {
+//    
+//    typealias RoutingDestination = ChatRoutingDestination
+//    
+//    static let shared = ChatRouter()
+//    
+//    func route(to destination: RoutingDestination) {
+//        switch destination {
+//        case .viewChat(let userId):
+//            self.viewChat(userId: userId)
+//            //            let viewModel = MovieDetailsViewModel(movieID: userId)
+//            //            let vc = MovieDetailsViewController(viewModel: viewModel)
+//            //            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
+//    private func viewChat(userId: Int) {
+//        let viewModel = MovieDetailsViewModel(movieID: userId)
+//        let vc = MovieDetailsViewController(viewModel: viewModel)
+//        let homeVC = HomeViewController()
+//        homeVC.navigationController?.pushViewController(vc, animated: true)
+//    }
+//}
+//
+//protocol ViewControllerProvider {
+//   typealias ResultHandler = (Result<UIViewController, Error>) -> Void
+//   func provideViewController(resultHandler: @escaping ResultHandler)
+//}
+//
+//
+//extension ChatRoutingDestination: ViewControllerProvider {
+//   func provideViewController(resultHandler: @escaping ResultHandler) {
+//      switch self {
+//      case .viewChat(let userId):
+//         self.provideViewChatController(userId: userId, resultHandler: resultHandler)
+//      // etc.
+//      }
+//   }
+//  
+//   private func provideViewChatController(userId: Int, resultHandler: ResultHandler) {
+//      let viewChatController = ViewChatController(userId: userId)
+//      resultHandler(.success(viewChatController))
+//   }
 //}
