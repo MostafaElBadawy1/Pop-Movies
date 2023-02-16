@@ -8,9 +8,11 @@
 import UIKit
 import SDWebImage
 class MovieDetailsViewController: UIViewController {
+    
     //MARK: - Properites
     private var movieDetailsViewModel: MovieDetailsViewModel
     private var imageLoader: ImageLoadable
+    
     //MARK: - IBOutlets
     @IBOutlet weak private var movieTitleLabel: UILabel!
     @IBOutlet weak private var moviePosterImageView: UIImageView!
@@ -18,6 +20,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak private var runTimeLabel: UILabel!
     @IBOutlet weak private var ratingLabel: UILabel!
     @IBOutlet weak private var overViewLabel: UILabel!
+    
     //MARK: - LifyCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,7 @@ class MovieDetailsViewController: UIViewController {
         }
     }
 }
+
 private extension MovieDetailsViewController {
     //MARK: - Main Methods
     func initView() {
@@ -60,6 +64,7 @@ private extension MovieDetailsViewController {
     func setupView(ImageURL: URL) {
         imageLoader.setImage(ImageURL:  ImageURL, imageView: moviePosterImageView)
     }
+    
     //MARK: - Data Methods
     func fetchMovieDetails() {
         movieDetailsViewModel.getMovieDetails()
