@@ -55,15 +55,15 @@ private extension MovieDetailsViewController {
     
     func initViewModel() {
        // guard let movieID = movieID else { return }
-       // fetchMovieDetails(movieID: String(movieID))
+        fetchMovieDetails()
         bindMovieDetailsData()
     }
     func setupView(ImageURL: URL) {
         imageLoader.setImage(ImageURL:  ImageURL, imageView: moviePosterImageView)
     }
     //MARK: - Data Methods
-    func fetchMovieDetails(movieID: String) {
-        movieDetailsViewModel.getMovieDetails(movieID: movieID)
+    func fetchMovieDetails() {
+        movieDetailsViewModel.getMovieDetails()
     }
     
     func bindMovieDetailsData() {

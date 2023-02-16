@@ -10,11 +10,7 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImageView: UIImageView!
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
+   
     func configure(with configurations: HomeCollectionViewCellConfigurations) {
         configurations.imageLoader.setImage(ImageURL: configurations.movieImageURL, imageView: movieImageView)
     }

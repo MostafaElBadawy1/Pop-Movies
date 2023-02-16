@@ -8,36 +8,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Pop_Movies" customModuleProvider="target">
+            <connections>
+                <outlet property="arragnmentMoviesBarButtonItem" destination="Afc-P2-a27" id="8UV-xp-O9y"/>
+                <outlet property="homeCollectionView" destination="DQu-HF-SL5" id="WWx-nO-gh6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="ROB-f9-DVm" customClass="HomeViewController" customModule="Pop_Movies" customModuleProvider="target">
-            <view key="view" contentMode="scaleToFill" id="ZNm-J5-esf">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sF8-rV-Ijc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqO-eh-Ejd">
-                            <size key="itemSize" width="202" height="320"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                    </collectionView>
-                </subviews>
-                <viewLayoutGuide key="safeArea" id="WLf-NK-7JM"/>
-                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                <constraints>
-                    <constraint firstItem="sF8-rV-Ijc" firstAttribute="leading" secondItem="WLf-NK-7JM" secondAttribute="leading" id="Nux-wX-Gmj"/>
-                    <constraint firstItem="sF8-rV-Ijc" firstAttribute="bottom" secondItem="WLf-NK-7JM" secondAttribute="bottom" id="Whq-4d-Lyi"/>
-                    <constraint firstItem="sF8-rV-Ijc" firstAttribute="trailing" secondItem="WLf-NK-7JM" secondAttribute="trailing" id="m3V-MJ-xGH"/>
-                    <constraint firstItem="sF8-rV-Ijc" firstAttribute="top" secondItem="WLf-NK-7JM" secondAttribute="top" id="pUb-Ro-ob2"/>
-                </constraints>
-            </view>
-            <point key="canvasLocation" x="101" y="15"/>
-        </viewController>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DQu-HF-SL5">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AG2-7K-gcK">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fd-Mm-D2D">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="pSo-vd-WmN">
+                            <barButtonItem key="rightBarButtonItem" title="Item" id="Afc-P2-a27"/>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4fd-Mm-D2D" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="31y-Qc-H4j"/>
+                <constraint firstItem="DQu-HF-SL5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FeX-Mq-dzO"/>
+                <constraint firstItem="4fd-Mm-D2D" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LX7-hR-8ni"/>
+                <constraint firstItem="4fd-Mm-D2D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gk2-cS-dOb"/>
+                <constraint firstItem="DQu-HF-SL5" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="idF-fo-1VI"/>
+                <constraint firstItem="DQu-HF-SL5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="juG-6g-Xj5"/>
+                <constraint firstItem="DQu-HF-SL5" firstAttribute="top" secondItem="4fd-Mm-D2D" secondAttribute="bottom" id="xeB-LO-myf"/>
+            </constraints>
+            <point key="canvasLocation" x="198.55072463768118" y="-65.625"/>
+        </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
