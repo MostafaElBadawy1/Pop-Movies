@@ -10,9 +10,19 @@ import UIKit
 class HomeViewModel {
     
     // MARK: - Public Properties
+<<<<<<< Updated upstream
     let apiManager: APIManaging
     init (apiManager: APIManaging = APIManager()) {
         self.apiManager = apiManager
+=======
+    //    let apiManager: APIManagerProtocol
+    //    init (apiManager: APIManagerProtocol = APIManager()) {
+    //        self.apiManager = apiManager
+    //    }
+    let networkLayer: NetworkProtocol
+    init (networkLayer: NetworkProtocol = URLSession()) {
+        self.networkLayer = networkLayer
+>>>>>>> Stashed changes
     }
     var preFetchingIndex = 6
     var arrengmentType = "popularity.desc"
@@ -38,19 +48,43 @@ class HomeViewModel {
 // MARK: - View Helpers
 extension HomeViewModel {
     func getHomeMovies(sortBy: String, page: Int) {
+<<<<<<< Updated upstream
         apiManager.fetchData(target: .getHome(apiKey: Constants.shared.apiKey, sortBy: sortBy, page: page), responceModel: HomeMoviesData.self)  { result, error in
+=======
+        networkLayer.fetchData(for: .home(apiKey: Constants.shared.apiKey, sortBy: sortBy, page: page), responseModel: HomeMoviesData.self) { result, error in
+>>>>>>> Stashed changes
             switch result {
             case .some(let data):
                 self.result = data.results ?? []
             case .none:
                 switch error {
                 case .some(let error):
+<<<<<<< Updated upstream
+=======
+                    print("errorrrrrrr\(error)")
+>>>>>>> Stashed changes
                     self.error = error
                 case .none:
                     return
                 }
             }
         }
+<<<<<<< Updated upstream
+=======
+        //        apiManager.fetchData(target: .getHome(apiKey: Constants.shared.apiKey, sortBy: sortBy, page: page), responceModel: HomeMoviesData.self)  { result, error in
+        //            switch result {
+        //            case .some(let data):
+        //                self.result = data.results ?? []
+        //            case .none:
+        //                switch error {
+        //                case .some(let error):
+        //                    self.error = error
+        //                case .none:
+        //                    return
+        //                }
+        //            }
+        //        }
+>>>>>>> Stashed changes
     }
     
     func getMoviesCount() -> Int {
