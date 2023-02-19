@@ -9,11 +9,9 @@ import Foundation
 class MovieDetailsViewModel {
     var movie: MovieDetails?
     var bindingData: ((MovieDetails?,Error?) -> Void) = {_, _ in}
-<<<<<<< Updated upstream
-    private let apiManager: APIManaging
-=======
+
     private let networkLayer: NetworkProtocol
->>>>>>> Stashed changes
+
     private var movieID: Int
     private var result: MovieDetails? {
         didSet {
@@ -26,13 +24,8 @@ class MovieDetailsViewModel {
         }
     }
     
-<<<<<<< Updated upstream
-    init(apiManager: APIManaging = APIManager(), movieID: Int) {
-        self.apiManager = apiManager
-=======
-    init (networkLayer: NetworkProtocol = URLSession(), movieID: Int) {
+    init(networkLayer: NetworkProtocol = URLSession(), movieID: Int) {
         self.networkLayer = networkLayer
->>>>>>> Stashed changes
         self.movieID = movieID
     }
     

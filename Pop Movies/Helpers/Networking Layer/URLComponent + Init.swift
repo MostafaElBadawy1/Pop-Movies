@@ -23,7 +23,6 @@ public extension URLComponents {
 }
 
 extension URLComponents {
-    
     static func home(apiKey: String, sortBy: String, page: Int) -> Self {
         let queryItems: [URLQueryItem] = [
             .init(name: "api_key", value: apiKey ),
@@ -36,5 +35,9 @@ extension URLComponents {
         let queryItems: [URLQueryItem] = [.init(name: "api_key", value: Constants.shared.apiKey)]
         return Self(path: "/3/movie/\(id)", queryItems: queryItems)
     }
+    
+    static func movieDetails(id: String) -> Self {
+        let queryItems: [URLQueryItem] = [.init(name: "api_key", value: "2ddab98eebacf2ae66405362b4598826")]
+        return Self(path: "movie/\(id)", queryItems: queryItems)
+    }
 }
-

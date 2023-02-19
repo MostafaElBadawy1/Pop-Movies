@@ -31,18 +31,8 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-<<<<<<< Updated upstream
-    
-=======
-    func tryingNewNetworkLayer() {
 
-//        URLSession.shared.fetchData(for: .home, responceModel: HomeMoviesData.self) { movies, error in
-//            print(movies)
-//            print(error)
-//        }
-        
-    }
->>>>>>> Stashed changes
+    
     //MARK: - Main Methods
     private func initView() {
         configureCollectionView()

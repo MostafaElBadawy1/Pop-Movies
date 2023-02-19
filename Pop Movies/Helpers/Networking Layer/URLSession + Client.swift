@@ -12,7 +12,6 @@ protocol NetworkProtocol {
 }
 
 extension URLSession: NetworkProtocol {
-
     func fetchData<M:Decodable>(for request: URLRequest, responseModel:M.Type, completion: @escaping (M?, Error?)-> Void) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if error == nil {
@@ -25,9 +24,8 @@ extension URLSession: NetworkProtocol {
             do {
                 let json = try JSONDecoder().decode(responseModel, from: data!)
                 completion(json,nil)
-                print( "New Netwok Layer<<<<>>>>\(json)")
             } catch {
-                print("JSON error: \(error.localizedDescription)")
+                debugPrint("JSON error: \(error.localizedDescription)")
                 completion(nil, error)
             }
         }.resume()
