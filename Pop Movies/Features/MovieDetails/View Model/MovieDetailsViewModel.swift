@@ -9,7 +9,7 @@ import Foundation
 class MovieDetailsViewModel {
     var movie: MovieDetails?
     var bindingData: ((MovieDetails?,Error?) -> Void) = {_, _ in}
-    private let apiManager: APIManaging
+    private let apiManager: APIManagerProtocol
     private var movieID: Int
     private var result: MovieDetails? {
         didSet {
@@ -22,7 +22,7 @@ class MovieDetailsViewModel {
         }
     }
     
-    init(apiManager: APIManaging = APIManager(), movieID: Int) {
+    init(apiManager: APIManagerProtocol = APIManager(), movieID: Int) {
         self.apiManager = apiManager
         self.movieID = movieID
     }

@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-protocol APIManaging {
+protocol APIManagerProtocol {
     func fetchData<M:Decodable>(target: NetworkRouter, responceModel:M.Type, completion: @escaping (M?, Error?)-> Void)
 }
 
-class APIManager: APIManaging {
+class APIManager: APIManagerProtocol {
   //  private init() {}
     static let shared = APIManager()
     let sessionManager: Session = {
@@ -35,7 +35,7 @@ class APIManager: APIManaging {
    
     func fetchData<M:Decodable>(target: NetworkRouter, responceModel:M.Type, completion: @escaping (M?, Error?)-> Void) {
         sessionManager.request( target as URLRequestConvertible).responseDecodable(of: responceModel) { responce in
-            print(responce)
+          //  print(responce)
             switch responce.result {
             case .success(_):
                 guard let items = responce.value else {
