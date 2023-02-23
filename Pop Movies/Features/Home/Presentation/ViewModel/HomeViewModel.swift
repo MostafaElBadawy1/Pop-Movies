@@ -11,9 +11,9 @@ class HomeViewModel {
     
     // MARK: - Public Properties
 
-    let networkLayer: NetworkProtocol
-    init (networkLayer: NetworkProtocol = URLSession()) {
-        self.networkLayer = networkLayer
+    let getMoviesUseCase: GetMoviesHomeUseCaseContract
+    init (getMoviesUseCase: GetMoviesHomeUseCaseContract = GetMoviesHomeUseCase()) {
+        self.getMoviesUseCase = getMoviesUseCase
     }
     
     var preFetchingIndex = 6
@@ -40,7 +40,8 @@ class HomeViewModel {
 // MARK: - View Helpers
 extension HomeViewModel {
     func getHomeMovies(sortBy: String, page: Int) {
-        networkLayer.fetchData(for: .home(apiKey: Constants.shared.apiKey, sortBy: sortBy, page: page), responseModel: HomeMoviesData.self) { result, error in
+
+        getMoviesUseCase.getHomeMovies(sortBy: sortBy, page: page) { result, error in
             switch result {
             case .some(let data):
                 self.result = data.results ?? []
