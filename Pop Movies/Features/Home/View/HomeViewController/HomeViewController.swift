@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tryingNewNetworkLayer()
         initView()
         initViewModel()
     }
@@ -32,14 +31,8 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    func tryingNewNetworkLayer() {
 
-        URLSession.shared.fetchData(for: .home, responceModel: HomeMoviesData.self) { movies, error in
-            print(movies)
-            print(error)
-        }
-        
-    }
+    
     //MARK: - Main Methods
     private func initView() {
         configureCollectionView()

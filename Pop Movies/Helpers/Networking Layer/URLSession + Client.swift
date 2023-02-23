@@ -8,12 +8,11 @@
 import Foundation
 
 protocol NetworkProtocol {
-    func fetchData<M:Decodable>(for request: URLRequest, responceModel:M.Type, completion: @escaping (M?, Error?)-> Void)
+    func fetchData<M:Decodable>(for request: URLRequest, responseModel:M.Type, completion: @escaping (M?, Error?)-> Void)
 }
 
 extension URLSession: NetworkProtocol {
-
-    func fetchData<M:Decodable>(for request: URLRequest, responceModel:M.Type, completion: @escaping (M?, Error?)-> Void) {
+    func fetchData<M:Decodable>(for request: URLRequest, responseModel:M.Type, completion: @escaping (M?, Error?)-> Void) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if error == nil {
                 completion(nil, error)
@@ -23,10 +22,10 @@ extension URLSession: NetworkProtocol {
                 return
             }
             do {
-                let json = try JSONDecoder().decode(responceModel, from: data!)
-                print( "New Netwok Layer<<<<>>>>\(json)")
+                let json = try JSONDecoder().decode(responseModel, from: data!)
+                completion(json,nil)
             } catch {
-                print("JSON error: \(error.localizedDescription)")
+                debugPrint("JSON error: \(error.localizedDescription)")
                 completion(nil, error)
             }
         }.resume()

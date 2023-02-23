@@ -17,7 +17,6 @@
 		060B800C299E487F00FECC0F /* RouteContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060B800B299E487F00FECC0F /* RouteContract.swift */; };
 		060B800E299E488A00FECC0F /* NavigationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060B800D299E488A00FECC0F /* NavigationContract.swift */; };
 		060B8010299E48C600FECC0F /* UIViewController+NavigationContractExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060B800F299E48C600FECC0F /* UIViewController+NavigationContractExt.swift */; };
-		060B8014299E827400FECC0F /* URLComponentsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060B8013299E827400FECC0F /* URLComponentsExtention.swift */; };
 		060F67D329A23D040050B2D9 /* URLComponent + Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F67D229A23D040050B2D9 /* URLComponent + Init.swift */; };
 		060F67D529A23D380050B2D9 /* URLRequest + Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F67D429A23D380050B2D9 /* URLRequest + Builder.swift */; };
 		060F67D729A23D660050B2D9 /* URLSession + Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F67D629A23D660050B2D9 /* URLSession + Client.swift */; };
@@ -56,7 +55,6 @@
 		060B800B299E487F00FECC0F /* RouteContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteContract.swift; sourceTree = "<group>"; };
 		060B800D299E488A00FECC0F /* NavigationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContract.swift; sourceTree = "<group>"; };
 		060B800F299E48C600FECC0F /* UIViewController+NavigationContractExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationContractExt.swift"; sourceTree = "<group>"; };
-		060B8013299E827400FECC0F /* URLComponentsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsExtention.swift; sourceTree = "<group>"; };
 		060F67D229A23D040050B2D9 /* URLComponent + Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponent + Init.swift"; sourceTree = "<group>"; };
 		060F67D429A23D380050B2D9 /* URLRequest + Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest + Builder.swift"; sourceTree = "<group>"; };
 		060F67D629A23D660050B2D9 /* URLSession + Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession + Client.swift"; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				060F67D229A23D040050B2D9 /* URLComponent + Init.swift */,
 				060F67D429A23D380050B2D9 /* URLRequest + Builder.swift */,
 				060F67D629A23D660050B2D9 /* URLSession + Client.swift */,
-				060B8013299E827400FECC0F /* URLComponentsExtention.swift */,
 				060B8012299E824700FECC0F /* Old */,
 			);
 			path = "Networking Layer";
@@ -421,7 +418,6 @@
 				0683BD6D299933560097252D /* Constants.swift in Sources */,
 				067C337A299A545400A61E2C /* ViewController+Ext.swift in Sources */,
 				060F67D529A23D380050B2D9 /* URLRequest + Builder.swift in Sources */,
-				060B8014299E827400FECC0F /* URLComponentsExtention.swift in Sources */,
 				0683BD6A299933110097252D /* HomeCollectionViewCell.swift in Sources */,
 				067C3374299A44F600A61E2C /* HomeMoviesData.swift in Sources */,
 				0683BD5F2999272C0097252D /* FavoriteViewController.swift in Sources */,

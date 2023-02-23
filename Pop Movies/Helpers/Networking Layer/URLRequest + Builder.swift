@@ -52,10 +52,11 @@ public extension URLRequest {
 }
 
 extension URLRequest {
-    static var home: Self {
-        Self(components: .home(apiKey: "2ddab98eebacf2ae66405362b4598826", sortBy: "popularity.desc", page: "1"))
+    static func home(apiKey: String, sortBy: String, page: Int) -> Self {
+       Self(components: .home(apiKey: apiKey, sortBy: sortBy, page: page))
     }
-    static var movieDetails: Self {
-        Self(components: .movieDetails(id: ""))
+
+    static func movieDetails(id: Int) -> Self {
+        Self(components: .movieDetails(id: id))
     }
 }
