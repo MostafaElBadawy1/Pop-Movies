@@ -10,6 +10,7 @@ import UIKit
 class HomeViewModel {
     
     // MARK: - Public Properties
+
     let getMoviesUseCase: GetMoviesHomeUseCaseContract
     init (getMoviesUseCase: GetMoviesHomeUseCaseContract = GetMoviesHomeUseCase()) {
         self.getMoviesUseCase = getMoviesUseCase
@@ -39,6 +40,7 @@ class HomeViewModel {
 // MARK: - View Helpers
 extension HomeViewModel {
     func getHomeMovies(sortBy: String, page: Int) {
+
         getMoviesUseCase.getHomeMovies(sortBy: sortBy, page: page) { result, error in
             switch result {
             case .some(let data):

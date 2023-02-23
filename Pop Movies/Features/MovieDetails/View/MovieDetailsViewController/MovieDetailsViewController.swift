@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+
 class MovieDetailsViewController: UIViewController {
     
     //MARK: - Properites
