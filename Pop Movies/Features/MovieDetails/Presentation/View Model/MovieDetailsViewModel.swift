@@ -9,9 +9,8 @@ import Foundation
 class MovieDetailsViewModel {
     var movie: MovieDetails?
     var bindingData: ((MovieDetails?,Error?) -> Void) = {_, _ in}
-
-    private let networkLayer: NetworkProtocol
-
+    
+    private let getMovieDetailsUseCase: GetMovieDetailsUseCaseContract
     private var movieID: Int
     private var result: MovieDetails? {
         didSet {
@@ -24,13 +23,13 @@ class MovieDetailsViewModel {
         }
     }
     
-    init(networkLayer: NetworkProtocol = URLSession(), movieID: Int) {
-        self.networkLayer = networkLayer
+    init(getMovieDetailsUseCase: GetMovieDetailsUseCaseContract = GetMovieDetailsUseCase(), movieID: Int) {
+        self.getMovieDetailsUseCase = getMovieDetailsUseCase
         self.movieID = movieID
     }
     
-    func getMovieDetails() {
-        networkLayer.fetchData(for: .movieDetails(id: movieID), responseModel: MovieDetails.self)  { result, error in
+    func getMovieDetails(id: Int) {
+        getMovieDetailsUseCase.getMovieDetails(id: id) { result, error in
             switch result {
             case .some(let data):
                 self.result = data
